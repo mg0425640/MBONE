@@ -1,24 +1,12 @@
-<<<<<<< HEAD
 'use client';
 
-=======
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 import { motion } from 'framer-motion';
 import { Shield, FileText, Lock, Eye } from 'lucide-react';
 
-<<<<<<< HEAD
 export default function PolicyClient() {
-=======
-export const metadata = {
-  title: 'Policies - MILLIONBONE',
-  description: 'Read our privacy policy, terms of service, and other important policies for MILLIONBONE.',
-};
-
-export default function Policy() {
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
   const policies = [
     {
       icon: Shield,
@@ -59,12 +47,9 @@ export default function Policy() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-<<<<<<< HEAD
             <div className="bg-white/80 backdrop-blur-sm p-6 rounded-full shadow-lg inline-block mb-8">
               <Shield className="h-16 w-16 text-brand-accent" />
             </div>
-=======
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
             <h1 className="text-4xl md:text-5xl font-black text-brand-primary mb-4">
               POLICIES
             </h1>
@@ -218,13 +203,9 @@ export default function Policy() {
             transition={{ duration: 0.8, delay: 1.0 }}
             className="bg-gradient-to-r from-brand-primary to-brand-secondary rounded-2xl p-8 text-white text-center mt-8"
           >
-<<<<<<< HEAD
             <h3 className="text-2xl text-brand-primary font-bold mb-4">Questions About Our Policies?</h3>
-            <p className="text-lg mb-6 text-brand-secondary">
-=======
             <h3 className="text-2xl font-bold mb-4">Questions About Our Policies?</h3>
             <p className="text-lg mb-6">
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
               If you have any questions about these policies, please don't hesitate to contact us.
             </p>
             <a 
@@ -239,8 +220,4 @@ export default function Policy() {
       <Footer />
     </PageTransition>
   );
-<<<<<<< HEAD
-}   
-=======
 }
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307

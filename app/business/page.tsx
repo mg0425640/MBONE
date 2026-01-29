@@ -1,24 +1,12 @@
-<<<<<<< HEAD
 'use client';
 
-=======
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 import { motion } from 'framer-motion';
 import { Building, Handshake, Users, TrendingUp, Mail, Phone } from 'lucide-react';
 
-<<<<<<< HEAD
 export default function BusinessClient() {
-=======
-export const metadata = {
-  title: 'Business - MILLIONBONE',
-  description: 'Business partnerships, wholesale opportunities, and corporate information for MILLIONBONE.',
-};
-
-export default function Business() {
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
   const businessServices = [
     {
       icon: Handshake,
@@ -75,12 +63,9 @@ export default function Business() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-<<<<<<< HEAD
             <div className="bg-white/80 backdrop-blur-sm p-6 rounded-full shadow-lg inline-block mb-8">
               <Building className="h-16 w-16 text-brand-accent" />
             </div>
-=======
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
             <h1 className="text-4xl md:text-5xl font-black text-brand-primary mb-4">
               BUSINESS
             </h1>
@@ -241,56 +226,35 @@ export default function Business() {
             transition={{ duration: 0.8, delay: 1.0 }}
             className="bg-gradient-to-r from-brand-primary to-brand-secondary rounded-2xl p-8 text-white"
           >
-<<<<<<< HEAD
             <h2 className="text-3xl text-brand-primary font-bold mb-8 text-center">
-=======
-            <h2 className="text-3xl font-bold mb-8 text-center">
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
               Let's Work Together
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div className="text-center">
                 <div className="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-<<<<<<< HEAD
                   <Mail className="h-8 w-8 text-brand-accent" />
                 </div>
                 <h3 className="font-bold text-brand-secondary text-lg mb-2">Business Inquiries</h3>
                 <a href="mailto:business@millionbone.com" className="text-brand-secondary hover:text-white">
-=======
-                  <Mail className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Business Inquiries</h3>
-                <a href="mailto:business@millionbone.com" className="text-white/90 hover:text-white">
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
+
                   business@millionbone.com
                 </a>
               </div>
               
               <div className="text-center">
                 <div className="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-<<<<<<< HEAD
                   <Phone className="h-8 w-8 text-brand-accent" />
                 </div>
                 <h3 className="font-bold text-brand-primary text-lg mb-2">Partnership Team</h3>
                 <a href="mailto:partnerships@millionbone.com" className="text-brand-secondary hover:text-white">
-=======
-                  <Phone className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Partnership Team</h3>
-                <a href="mailto:partnerships@millionbone.com" className="text-white/90 hover:text-white">
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
                   partnerships@millionbone.com
                 </a>
               </div>
             </div>
             
             <div className="text-center">
-<<<<<<< HEAD
               <p className="text-brand-secondary mb-6">
-=======
-              <p className="text-white/90 mb-6">
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
                 We typically respond to business inquiries within 24 hours. 
                 Let's explore how we can grow together!
               </p>

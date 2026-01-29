@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 'use client';
 
-=======
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
@@ -10,16 +7,7 @@ import { motion } from 'framer-motion';
 import { Headphones, Clock, Mail, MessageCircle, Phone, Users } from 'lucide-react';
 import Link from 'next/link';
 
-<<<<<<< HEAD
-export default function CustomerServiceClient() {
-=======
-export const metadata = {
-  title: 'Customer Service - MILLIONBONE',
-  description: 'Get help and support for your MILLIONBONE experience. Our customer service team is here to assist you.',
-};
-
 export default function CustomerService() {
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
   const serviceOptions = [
     {
       icon: Mail,
@@ -90,12 +78,9 @@ export default function CustomerService() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-<<<<<<< HEAD
             <div className="bg-white/80 backdrop-blur-sm p-6 rounded-full shadow-lg inline-block mb-8">
               <Headphones className="h-16 w-16 text-brand-accent" />
             </div>
-=======
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
             <h1 className="text-4xl md:text-5xl font-black text-brand-primary mb-4">
               CUSTOMER SERVICE
             </h1>
@@ -242,22 +227,6 @@ export default function CustomerService() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="bg-gradient-to-r from-brand-primary to-brand-secondary rounded-2xl p-8 text-white text-center"
           >
-<<<<<<< HEAD
-            <Clock className="h-12 w-12 mx-auto mb-4 text-brand-accent" />
-            <h3 className="text-2xl font-bold mb-4 text-brand-primary">Support Hours</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div>
-                <div className="font-bold mb-1 text-brand-primary">Email Support</div>
-                <div className="text-brand-secondary">24/7 - Responses within 24 hours</div>
-              </div>
-              <div>
-                <div className="font-bold mb-1 text-brand-primary">Live Chat</div>
-                <div className="text-brand-secondary">24/7 - Community channels</div>
-              </div>
-              <div>
-                <div className="font-bold mb-1 text-brand-primary">Priority Support</div>
-                <div className="text-brand-secondary">Mon-Fri, 9 AM - 6 PM EST</div>
-=======
             <Clock className="h-12 w-12 mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-4">Support Hours</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -272,7 +241,6 @@ export default function CustomerService() {
               <div>
                 <div className="font-bold mb-1">Priority Support</div>
                 <div className="text-white/90">Mon-Fri, 9 AM - 6 PM EST</div>
->>>>>>> 37c0505d4acc997ab65ae181d8faafdd61c03307
               </div>
             </div>
           </motion.div>
