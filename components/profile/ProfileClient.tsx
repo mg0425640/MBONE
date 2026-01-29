@@ -3,21 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useAccount } from 'wagmi';
-import { 
-  User, 
-  Mail, 
-  MapPin, 
-  Save, 
-  Edit3, 
-  Check, 
-  X, 
-  Wallet,
-  Calendar,
-  Globe,
-  Home,
-  Phone,
-  AlertCircle
-} from 'lucide-react';
+import { User, Mail, MapPin, Save, CreditCard as Edit3, Check, X, Wallet, Calendar, Globe, Chrome as Home, Phone, CircleAlert as AlertCircle } from 'lucide-react';
 import { AuthService, type UserProfile } from '@/lib/auth';
 
 export default function ProfileClient() {
