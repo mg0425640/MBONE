@@ -64,9 +64,40 @@ export type Database = {
           name: string
           description: string | null
           price: number
+          mrp: number | null
+          discount: number | null
+          final_mrp: number | null
+          you_save: number | null
+          exclusive_reward: string | null
           category_id: string | null
           image_url: string | null
           images: any
+          product_image_1: string | null
+          product_image_2: string | null
+          product_image_3: string | null
+          product_image_4: string | null
+          product_image_5: string | null
+          product_image_6: string | null
+          product_image_7: string | null
+          product_image_8: string | null
+          product_image_9: string | null
+          product_image_10: string | null
+          size: string | null
+          material_composition: string | null
+          pattern: string | null
+          fit_type: string | null
+          sleeve_type: string | null
+          collar_style: string | null
+          length: string | null
+          country_of_origin: string | null
+          about_this_item: string | null
+          manufacturer: string | null
+          packer: string | null
+          importer: string | null
+          item_weight: string | null
+          item_dimensions: string | null
+          net_quantity: string | null
+          generic_name: string | null
           stock_quantity: number
           is_featured: boolean
           is_active: boolean
@@ -78,9 +109,40 @@ export type Database = {
           name: string
           description?: string | null
           price: number
+          mrp?: number | null
+          discount?: number | null
+          final_mrp?: number | null
+          you_save?: number | null
+          exclusive_reward?: string | null
           category_id?: string | null
           image_url?: string | null
           images?: any
+          product_image_1?: string | null
+          product_image_2?: string | null
+          product_image_3?: string | null
+          product_image_4?: string | null
+          product_image_5?: string | null
+          product_image_6?: string | null
+          product_image_7?: string | null
+          product_image_8?: string | null
+          product_image_9?: string | null
+          product_image_10?: string | null
+          size?: string | null
+          material_composition?: string | null
+          pattern?: string | null
+          fit_type?: string | null
+          sleeve_type?: string | null
+          collar_style?: string | null
+          length?: string | null
+          country_of_origin?: string | null
+          about_this_item?: string | null
+          manufacturer?: string | null
+          packer?: string | null
+          importer?: string | null
+          item_weight?: string | null
+          item_dimensions?: string | null
+          net_quantity?: string | null
+          generic_name?: string | null
           stock_quantity?: number
           is_featured?: boolean
           is_active?: boolean
@@ -92,9 +154,40 @@ export type Database = {
           name?: string
           description?: string | null
           price?: number
+          mrp?: number | null
+          discount?: number | null
+          final_mrp?: number | null
+          you_save?: number | null
+          exclusive_reward?: string | null
           category_id?: string | null
           image_url?: string | null
           images?: any
+          product_image_1?: string | null
+          product_image_2?: string | null
+          product_image_3?: string | null
+          product_image_4?: string | null
+          product_image_5?: string | null
+          product_image_6?: string | null
+          product_image_7?: string | null
+          product_image_8?: string | null
+          product_image_9?: string | null
+          product_image_10?: string | null
+          size?: string | null
+          material_composition?: string | null
+          pattern?: string | null
+          fit_type?: string | null
+          sleeve_type?: string | null
+          collar_style?: string | null
+          length?: string | null
+          country_of_origin?: string | null
+          about_this_item?: string | null
+          manufacturer?: string | null
+          packer?: string | null
+          importer?: string | null
+          item_weight?: string | null
+          item_dimensions?: string | null
+          net_quantity?: string | null
+          generic_name?: string | null
           stock_quantity?: number
           is_featured?: boolean
           is_active?: boolean
@@ -177,6 +270,83 @@ export type Database = {
           product_id?: string | null
           quantity?: number
           price?: number
+        }
+      }
+      customer_complaints: {
+        Row: {
+          id: string
+          name: string
+          email: string
+          phone: string | null
+          subject: string
+          message: string
+          category: string
+          priority: string
+          status: string
+          assigned_to: string | null
+          resolution_notes: string | null
+          created_at: string
+          updated_at: string
+          resolved_at: string | null
+        }
+        Insert: {
+          id?: string
+          name: string
+          email: string
+          phone?: string | null
+          subject: string
+          message: string
+          category?: string
+          priority?: string
+          status?: string
+          assigned_to?: string | null
+          resolution_notes?: string | null
+          created_at?: string
+          updated_at?: string
+          resolved_at?: string | null
+        }
+        Update: {
+          id?: string
+          name?: string
+          email?: string
+          phone?: string | null
+          subject?: string
+          message?: string
+          category?: string
+          priority?: string
+          status?: string
+          assigned_to?: string | null
+          resolution_notes?: string | null
+          updated_at?: string
+          resolved_at?: string | null
+        }
+      }
+      product_images: {
+        Row: {
+          id: string
+          s_no: number
+          image_url: string
+          alt_text: string | null
+          is_active: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          s_no: number
+          image_url: string
+          alt_text?: string | null
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          s_no?: number
+          image_url?: string
+          alt_text?: string | null
+          is_active?: boolean
+          updated_at?: string
         }
       }
     }

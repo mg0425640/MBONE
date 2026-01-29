@@ -18,31 +18,19 @@ export default function TokenomicsHero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex justify-center mb-8"
-        >
-          <div className="bg-white/80 backdrop-blur-sm p-6 rounded-full shadow-lg">
-            <PieChart className="h-16 w-16 text-brand-accent" />
-          </div>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8 }}
           className="text-5xl md:text-6xl font-black text-brand-primary mb-6 tracking-tight"
         >
-          TOKENOMICS
-          <span className="text-brand-accent block">BREAKDOWN</span>
+          TOKENOMICS <span className="text-brand-accent">BREAKDOWN</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xl md:text-2xl text-brand-secondary mb-12 max-w-3xl mx-auto leading-relaxed"
         >
           Transparent, sustainable tokenomics designed to reward holders 
@@ -55,7 +43,7 @@ export default function TokenomicsHero() {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 + (index * 0.1) }}
+              transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
               className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg"
             >
               <div className="text-3xl font-black text-brand-accent mb-2">

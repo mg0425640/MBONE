@@ -11,7 +11,13 @@ interface Product {
   name: string;
   description: string;
   price: number;
+  mrp: number | null;
+  discount: number | null;
+  final_mrp: number | null;
+  you_save: number | null;
+  exclusive_reward: string | null;
   image_url: string;
+  product_image_1: string | null;
   stock_quantity: number;
 }
 
@@ -87,10 +93,17 @@ export default function AccessoriesSection() {
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg border hover-lift group-hover:border-brand-accent transition-all duration-300">
                   <div className="relative overflow-hidden">
                     <img
-                      src={product.image_url}
+                      src={product.product_image_1 || product.image_url}
                       alt={product.name}
                       className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
+                    {product.discount && product.discount > 0 && (
+                      <div className="absolute top-4 right-4">
+                        <div className="bg-red-500 text-white px-2 py-1 rounded-lg text-sm font-bold">
+                          -{product.discount}%
+                        </div>
+                      </div>
+                    )}
                   </div>
                   
                   <div className="p-6">
@@ -103,8 +116,28 @@ export default function AccessoriesSection() {
                     </p>
                     
                     <div className="flex items-center justify-between">
-                      <div className="text-2xl font-black text-brand-accent">
-                        ${product.price}
+                      <div className="flex flex-col">
+                        {product.mrp && product.final_mrp && product.mrp !== product.final_mrp ? (
+                          <>
+                            <div className="flex items-center space-x-2">
+                              <span className="text-2xl font-black text-brand-accent">
+                                ${product.final_mrp}
+                              </span>
+                              <span className="text-lg text-gray-500 line-through">
+                                ${product.mrp}
+                              </span>
+                            </div>
+                            {product.you_save && (
+                              <span className="text-sm text-green-600 font-medium">
+                                You save: ${product.you_save}
+                              </span>
+                            )}
+                          </>
+                        ) : (
+                          <div className="text-2xl font-black text-brand-accent">
+                            ${product.final_mrp || product.price}
+                          </div>
+                        )}
                       </div>
                       
                       <motion.button

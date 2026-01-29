@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Twitter, MessageCircle, Users, Instagram, Bone } from 'lucide-react';
 
 export default function Footer() {
@@ -7,6 +8,15 @@ export default function Footer() {
     { icon: MessageCircle, href: '#', label: 'Telegram' },
     { icon: Users, href: '#', label: 'Discord' },
     { icon: Instagram, href: '#', label: 'Instagram' },
+  ];
+
+  const customerServiceLinks = [
+    { href: '/customer-service', label: 'Customer Service' },
+    { href: '/shipping-rates', label: 'Shipping Rates' },
+    { href: '/policy', label: 'Policy' },
+    { href: '/business', label: 'Business' },
+    { href: '/faqs', label: 'FAQs' },
+    { href: '/support-ticket', label: 'Support Ticket' },
   ];
 
   return (
@@ -53,7 +63,7 @@ export default function Footer() {
           {/* Social Links */}
           <div>
             <h3 className="font-bold text-lg mb-4">Community</h3>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-3 mb-6">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -67,7 +77,42 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            
+            {/* Hero Bone Image */}
           </div>
+        </div>  
+
+        {/* Customer Service Links */}
+        <div className="border-t border-gray-600 mt-8 pt-6">
+          <h3 className="font-bold text-lg mb-4 text-center">Customer Service</h3>
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+            {customerServiceLinks.map((link, index) => (
+              <span key={link.href} className="flex items-center">
+                <Link 
+                  href={link.href} 
+                  className="text-gray-300 hover:text-brand-accent transition-colors text-sm md:text-base"
+                >
+                  {link.label}
+                </Link>
+                {index < customerServiceLinks.length - 1 && (
+                  <span className="text-gray-500 ml-4 md:ml-8">|</span>
+                )}
+              </span>
+            ))}
+          </div>
+        </div>
+
+          {/* Banner Image above Customer Service */}
+        <div className="relative w-full h-[60vh] md:h-[70vh]  mt-8"> 
+          <Image
+            src="/image/footerbnr.png"
+            alt="MILLIONBONE Banner"
+            fill
+            priority
+            className="object-cover"
+          />
+          {/* optional overlay */}
+          <div className="absolute inset-0 bg-black/20" />
         </div>
 
         <div className="border-t border-gray-600 mt-8 pt-8 text-center">

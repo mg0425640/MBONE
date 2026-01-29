@@ -37,10 +37,10 @@ export default function CommunityStyleSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-brand-primary mb-4">
             COMMUNITY STYLE
           </h2>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-xl text-brand-secondary max-w-2xl mx-auto">
             More than merchandise - it's a statement of belonging to the strongest pack in crypto
           </p>
         </motion.div>
@@ -56,14 +56,14 @@ export default function CommunityStyleSection() {
               className="text-center"
             >
               <div className="bg-white/20 backdrop-blur-sm w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <feature.icon className="h-8 w-8 text-white" />
+                <feature.icon className="h-8 w-8 text-brand-accent" />
               </div>
               
-              <h3 className="text-white font-bold text-lg mb-3">
+              <h3 className="text-brand-primary font-bold text-lg mb-3">
                 {feature.title}
               </h3>
               
-              <p className="text-white/80 leading-relaxed">
+              <p className="text-brand-secondary leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
@@ -77,10 +77,10 @@ export default function CommunityStyleSection() {
           viewport={{ once: true }}
           className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center"
         >
-          <h3 className="text-2xl font-bold text-white mb-4">
+          <h3 className="text-2xl font-bold text-brand-primary mb-4">
             Join the Style Revolution
           </h3>
-          <p className="text-white/90 leading-relaxed max-w-3xl mx-auto mb-6">
+          <p className="text-brand-secondary leading-relaxed max-w-3xl mx-auto mb-6">
             When you wear MILLIONBONE merchandise, you're not just wearing clothes - 
             you're representing a movement. A community of diamond hands who believe 
             in the power of unity, transparency, and the journey to the moon.
@@ -89,15 +89,15 @@ export default function CommunityStyleSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white/5 rounded-xl p-4">
               <div className="text-2xl font-bold text-brand-accent mb-2">50K+</div>
-              <p className="text-white/80">Community Members</p>
+              <p className="text-brand-secondary">Community Members</p>
             </div>
             <div className="bg-white/5 rounded-xl p-4">
               <div className="text-2xl font-bold text-brand-accent mb-2">25+</div>
-              <p className="text-white/80">Countries Represented</p>
+              <p className="text-brand-secondary">Countries Represented</p>
             </div>
             <div className="bg-white/5 rounded-xl p-4">
               <div className="text-2xl font-bold text-brand-accent mb-2">100%</div>
-              <p className="text-white/80">Diamond Hands</p>
+              <p className="text-brand-secondary">Diamond Hands</p>
             </div>
           </div>
         </motion.div>
