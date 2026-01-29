@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useAccount } from 'wagmi';
+import { useAuth } from '../auth/AuthProvider';
 import { User, Mail, MapPin, Save, CreditCard as Edit3, Check, X, Wallet, Calendar, Globe, Chrome as Home, Phone, CircleAlert as AlertCircle } from 'lucide-react';
 import { AuthService, type UserProfile } from '@/lib/auth';
 
 export default function ProfileClient() {
   const { address, isConnected } = useAccount();
+  const { user: authUser } = useAuth();
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -32,10 +34,10 @@ export default function ProfileClient() {
   // Load user profile when wallet connects
   useEffect(() => {
     const loadUserProfile = async () => {
-      if (isConnected && address) {
+      if (authUser?.email) {
         setLoading(true);
         try {
-          const profile = await AuthService.getUserProfile(address);
+          const profile = await AuthService.getUserProfileByEmail(authUser.email);
           if (profile) {
             setUserProfile(profile);
             setFormData({
@@ -64,7 +66,7 @@ export default function ProfileClient() {
     };
 
     loadUserProfile();
-  }, [isConnected, address]);
+  }, [authUser]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -75,7 +77,7 @@ export default function ProfileClient() {
   };
 
   const handleSave = async () => {
-    if (!address) return;
+    if (!authUser?.email) return;
 
     setSaving(true);
     setError(null);
@@ -83,17 +85,9 @@ export default function ProfileClient() {
 
     try {
       // Validate email and username availability if they changed
-      if (formData.email && formData.email !== userProfile?.email) {
-        const emailAvailable = await AuthService.isEmailAvailable(formData.email, address);
-        if (!emailAvailable) {
-          setError('Email is already taken');
-          setSaving(false);
-          return;
-        }
-      }
 
       if (formData.username && formData.username !== userProfile?.username) {
-        const usernameAvailable = await AuthService.isUsernameAvailable(formData.username, address);
+        const usernameAvailable = await AuthService.isUsernameAvailable(formData.username, authUser.email);
         if (!usernameAvailable) {
           setError('Username is already taken');
           setSaving(false);
@@ -101,7 +95,7 @@ export default function ProfileClient() {
         }
       }
 
-      const updatedProfile = await AuthService.updateUserProfile(address, formData);
+      const updatedProfile = await AuthService.updateUserProfileByEmail(authUser.email, formData);
       
       if (updatedProfile) {
         setUserProfile(updatedProfile);
@@ -141,7 +135,7 @@ export default function ProfileClient() {
     setError(null);
   };
 
-  if (!isConnected) {
+  if (!authUser) {
     return (
       <main className="min-h-screen pt-24 pb-20 bg-gradient-to-br from-brand-background to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -154,10 +148,10 @@ export default function ProfileClient() {
             >
               <Wallet className="h-16 w-16 text-brand-accent mx-auto mb-6" />
               <h1 className="text-3xl font-bold text-brand-primary mb-4">
-                Connect Your Wallet
+                Please Sign In
               </h1>
               <p className="text-brand-secondary text-lg">
-                Please connect your wallet to view and manage your profile.
+                Please sign in to view and manage your profile.
               </p>
             </motion.div>
           </div>
@@ -255,13 +249,25 @@ export default function ProfileClient() {
 
                 <div className="bg-gray-50 rounded-xl p-4 mb-4">
                   <div className="flex items-center space-x-2 mb-2">
-                    <Wallet className="h-4 w-4 text-brand-accent" />
-                    <span className="text-sm font-medium text-brand-secondary">Wallet Address</span>
+                    <Mail className="h-4 w-4 text-brand-accent" />
+                    <span className="text-sm font-medium text-brand-secondary">Email Address</span>
                   </div>
                   <code className="text-xs bg-white px-2 py-1 rounded font-mono text-brand-primary">
-                    {address}
+                    {authUser?.email}
                   </code>
                 </div>
+
+                {address && (
+                  <div className="bg-gray-50 rounded-xl p-4 mb-4">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Wallet className="h-4 w-4 text-brand-accent" />
+                      <span className="text-sm font-medium text-brand-secondary">Wallet Address</span>
+                    </div>
+                    <code className="text-xs bg-white px-2 py-1 rounded font-mono text-brand-primary">
+                      {address}
+                    </code>
+                  </div>
+                )}
 
                 {userProfile && (
                   <div className="text-xs text-gray-500 space-y-1">
@@ -394,10 +400,11 @@ export default function ProfileClient() {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        disabled={!editing}
+                        disabled={true}
                         className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent disabled:bg-gray-50 disabled:text-gray-500"
                         placeholder="Enter your email"
                       />
+                      <p className="text-xs text-gray-500 mt-1">Email cannot be changed</p>
                     </div>
                   </div>
                 </div>
