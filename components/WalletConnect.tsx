@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { useAccount, useDisconnect } from 'wagmi'
+import { useAccount, useDisconnect, useConnect } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -14,12 +14,14 @@ import {
   ChevronDown,
 } from 'lucide-react'
 import Link from 'next/link'
+import { AuthService } from '@/lib/auth'
 
 export default function WalletConnect() {
   const { address, isConnected } = useAccount()
   const { disconnect } = useDisconnect()
   const [open, setOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const [isCreatingUser, setIsCreatingUser] = useState(false)
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -32,6 +34,24 @@ export default function WalletConnect() {
     return () => document.removeEventListener('mousedown', handler)
   }, [])
 
+  // Handle user creation when wallet connects
+  useEffect(() => {
+    const handleWalletConnection = async () => {
+      if (isConnected && address && !isCreatingUser) {
+        setIsCreatingUser(true)
+        try {
+          await AuthService.createOrUpdateUser(address)
+          console.log('User created/updated successfully')
+        } catch (error) {
+          console.error('Error handling wallet connection:', error)
+        } finally {
+          setIsCreatingUser(false)
+        }
+      }
+    }
+
+    handleWalletConnection()
+  }, [isConnected, address, isCreatingUser])
   const menuItems = [
     { icon: User, label: 'Dashboard', href: '/dashboard' },
     { icon: User, label: 'Profile', href: '/profile' },
@@ -48,10 +68,11 @@ export default function WalletConnect() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={openConnectModal}
-            className="bg-brand-accent text-white px-6 py-2 rounded-full font-bold flex items-center gap-2"
+            className="bg-brand-accent text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 disabled:opacity-50"
+            disabled={isCreatingUser}
           >
             <Wallet className="h-4 w-4" />
-            Connect Wallet
+            {isCreatingUser ? 'Connecting...' : 'Connect Wallet'}
           </motion.button>
         )}
       </ConnectButton.Custom>
@@ -64,10 +85,11 @@ export default function WalletConnect() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setOpen(!open)}
-        className="bg-brand-primary text-white px-6 py-2 rounded-full font-bold flex items-center gap-2"
+        className="bg-brand-primary text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 disabled:opacity-50"
+        disabled={isCreatingUser}
       >
         <Wallet className="h-4 w-4" />
-        {address?.slice(0, 6)}…{address?.slice(-4)}
+        {isCreatingUser ? 'Setting up...' : `${address?.slice(0, 6)}…${address?.slice(-4)}`}
         <ChevronDown className="h-4 w-4" />
       </motion.button>
 

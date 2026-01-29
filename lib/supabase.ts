@@ -17,6 +17,15 @@ export type Database = {
           avatar_url: string | null
           created_at: string
           updated_at: string
+          first_name: string | null
+          last_name: string | null
+          address_line_1: string | null
+          address_line_2: string | null
+          area_locality: string | null
+          city: string | null
+          state_province: string | null
+          country: string | null
+          zip_code: string | null
         }
         Insert: {
           id?: string
@@ -26,6 +35,15 @@ export type Database = {
           avatar_url?: string | null
           created_at?: string
           updated_at?: string
+          first_name?: string | null
+          last_name?: string | null
+          address_line_1?: string | null
+          address_line_2?: string | null
+          area_locality?: string | null
+          city?: string | null
+          state_province?: string | null
+          country?: string | null
+          zip_code?: string | null
         }
         Update: {
           id?: string
@@ -34,6 +52,15 @@ export type Database = {
           username?: string | null
           avatar_url?: string | null
           updated_at?: string
+          first_name?: string | null
+          last_name?: string | null
+          address_line_1?: string | null
+          address_line_2?: string | null
+          area_locality?: string | null
+          city?: string | null
+          state_province?: string | null
+          country?: string | null
+          zip_code?: string | null
         }
       }
       categories: {
